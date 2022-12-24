@@ -1,16 +1,16 @@
 var harry = document.getElementById("harry");
 var board = document.getElementById("board");
 
-window.addEventListener("keydown",(e) => {
+window.addEventListener("keydown",(e) => {// e c'est l'evenement qui appelet apres le clique au botton de clavier
   var left = parseInt(window.getComputedStyle(harry).getPropertyValue("left"));
   
-  if( e.keyCode == 37 && left > 0){
-    harry.style.left = left - 10 + "px";
-  }else if(e.key == "ArrowRight" && left<= 440){
-    harry.style.left = left + 10 + "px";
+  if( (e.key == "ArrowLeft" || e.keyCode == 81) && left > 0){
+    harry.style.left = left - 5 + "px";
+  }else if((e.key == "ArrowRight" || e.keyCode == 68) && left<= 440){
+    harry.style.left = left + 5 + "px";
   }
-
-  if(e.keyCode == 38 || e.keyCode == 32){
+  
+  if(e.key == "ArrowUp" || e.keyCode == 90){
    var fire = document.createElement("div");
    fire.classList.add("fires");
    board.appendChild(fire);
@@ -37,15 +37,16 @@ window.addEventListener("keydown",(e) => {
      var firebottom = parseInt(
       window.getComputedStyle(fire).getPropertyValue("bottom"));
     
-    if(firebottom >= 670){
+    if(firebottom >= 670){//max intervalle de fire
       clearInterval(movefire);
     }
   
     fire.style.left = left + "px";
-    fire.style.bottom = firebottom + 3 + "px";
+    fire.style.bottom = firebottom + 3 + "px";//vitesse de fire
    });
   }
 });
+
 
 
 var generatemonsters = setInterval(() =>{
@@ -54,10 +55,10 @@ var generatemonsters = setInterval(() =>{
   var monsterleft = parseInt(
     window.getComputedStyle(monster).getPropertyValue("left")
   );
-  monster.style.left = Math.floor(Math.random() * 430) + "px";
+  monster.style.left = Math.floor(Math.random() * 431) + "px";//intervalle de l'ajoutation de monster dans un canvas
 
   board.appendChild(monster);
-},3000);
+},3000);//capacite de monster par seconde
 
 
 var movemonsters = setInterval(() =>{
@@ -69,12 +70,12 @@ var movemonsters = setInterval(() =>{
       var monstertop = parseInt(
         window.getComputedStyle(monster).getPropertyValue("top")
       );
-      if(monstertop >= 600){
+      if(monstertop >= 600){//max intervalle de monster
         alert("Game Over");
-        clearInterval(movemonsters);
-        window.location.reload();
+        clearInterval(movemonsters);//remove tous les moster
+        window.location.reload();//actualiser de fenetre
       }
-      monster.style.top = monstertop + 25 + "px";
+      monster.style.top = monstertop + 25 + "px";//vitesse de monster par px
     }
   }
-},600);
+},600);//vitesse de monster
