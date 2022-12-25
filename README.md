@@ -1,7 +1,8 @@
 # Game-Harry-Potter
 Creation d'un jeu de tire 2D Harry Potter
+<h1 align="center">
+<a href="https://game-harry-potter.web.app/">Harry Potter</a>
+</h1>
 <p align="center">
-<a href="https://github.com/zied-snoussi/Game-Harry-Potter/actions/workflows/firebase-hosting-merge.yml">
-<img src="https://github.com/zied-snoussi/Game-Harry-Potter/actions/workflows/firebase-hosting-merge.yml/badge.svg?branch=main">
-</a>
-</p>
+<img src="https://user-images.githubusercontent.com/74665047/209453718-ba207947-3008-44d3-a930-6034fadc1cec.jpg"/>
+<p>
